@@ -6,9 +6,9 @@
         <i class="fa fa-wrench"></i>
     </a>
     <ul class="dropdown-menu dropdown-user">
-        <li><a href="#" class="changeStatusAll" data-field="publish" data-model="User" data-value="1">Publish toàn bộ thành viên</a>
+        <li><a href="#" class="changeStatusAll" data-field="publish" data-model="UserCatalogue" data-value="1">Hoạt động toàn bộ thành viên</a>
         </li>
-        <li><a href="#" class="changeStatusAll" data-field="publish" data-model="User" data-value="0">Unpublish toàn bộ thành viên</a>
+        <li><a href="#" class="changeStatusAll" data-field="publish" data-model="UserCatalogue" data-value="0">Hủy hoạt động toàn bộ thành viên</a>
         </li>
     </ul>
     <a class="close-link">

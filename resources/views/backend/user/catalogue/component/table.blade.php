@@ -11,8 +11,8 @@
     </tr>
     </thead>
     <tbody>        
-        @if (isset($users) && is_object($users))
-        @foreach ($users as $user)
+        @if (isset($userCatalogues) && is_object($userCatalogues))
+        @foreach ($userCatalogues as $userCatalogue)
     <tr >
         <td>
             <input type="checkbox" value="{{$userCatalogue->id}}" class="input-checkbox checkBoxItem"/>
@@ -21,15 +21,15 @@
         <td>
             <div class="info-item name">{{$userCatalogue->name}}</div>
         </td>
-        {{-- <td class="text-center js-switch-{{$userCatalogue->id}}">
+        <td class="text-center js-switch-{{$userCatalogue->id}}">
             <input type="checkbox" value="{{$userCatalogue->publish}}" class="js-switch
-            status " data-field="publish" data-model="User" {{
+            status " data-field="publish" data-model="UserCatalogue" {{
                 ($userCatalogue->publish == 1) ? 'checked' : ''
             }} data-modelId="{{$userCatalogue->id}}" />
-        </td> --}}
+        </td>
         <td class="text-center">
-            <a href="{{route('user.edit',$userCatalogue->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
-            <a href="{{route('user.delete', $userCatalogue->id)}}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+            <a href="{{route('user.catalogue.edit',$userCatalogue->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-pencil"></i></a>
+            <a href="{{route('user.catalogue.delete', $userCatalogue->id)}}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
         </td>
     </tr>
     @endforeach

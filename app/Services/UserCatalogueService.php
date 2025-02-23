@@ -24,11 +24,12 @@ class UserCatalogueService implements UserCatalogueServiceInterface
 
     public function paginate($request)
     {
-        $condition['keyword'] = addslashes($request->input('keyword'));
-        $condition['publish'] = $request->integer('publish'); // Corrected here
+        $condition['publish'] = $request->integer('publish'); 
 
-        $perPage = (int) $request->input('perpage', 20); // Default to 20 if not provided
-        $users = $this->userCatalogueRepository->pagination($this->paginateSelect(), $condition, [], ['path' => 'user/catalogue/index'], $perPage);
+        $perPage = (int) $request->input('perpage'); 
+        $users = $this->userCatalogueRepository->pagination(
+            $this->paginateSelect(), $condition, [], ['path' => 'user/catalogue/index'],
+         $perPage);
 
         return $users;
     }
@@ -38,13 +39,14 @@ class UserCatalogueService implements UserCatalogueServiceInterface
         DB::beginTransaction();
         try {
             $payload = $request->except('_token', 'send');
+
             $user = $this->userCatalogueRepository->create($payload);
 
             DB::commit();
             return true;
         } catch (\Exception $e) {
             DB::rollBack();
-            Log::error($e->getMessage());
+            echo $e->getMessage();die;
             return false;
         }
     }
@@ -59,7 +61,7 @@ class UserCatalogueService implements UserCatalogueServiceInterface
             return true;
         } catch (\Exception $e) {
             DB::rollBack();
-            Log::error($e->getMessage());
+            echo $e->getMessage();die;
             return false;
         }
     }
@@ -73,7 +75,7 @@ class UserCatalogueService implements UserCatalogueServiceInterface
             return true;
         } catch (\Exception $e) {
             DB::rollBack();
-            Log::error($e->getMessage());
+            echo $e->getMessage();die;
             return false;
         }
     }
@@ -89,6 +91,7 @@ class UserCatalogueService implements UserCatalogueServiceInterface
         } catch (\Exception $e) {
             DB::rollBack();
             // Log::error($e->getMessage());
+            echo $e->getMessage();die;
             return false;
         }
     }
@@ -120,6 +123,8 @@ class UserCatalogueService implements UserCatalogueServiceInterface
         return [
             'id',
             'name',
+            'description',
+            'publish',
 
         ];
     }

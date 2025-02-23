@@ -22,18 +22,15 @@ class StoreUserCatalogueRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:191',
-            'description' => 'required|string',
-            // Thêm các quy tắc xác thực khác nếu cần
+            'name' => 'required|string',
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required' => '• Bạn chưa nhập tên',
-            'description.required' => '• Bạn chưa nhập mô tả',
-            // Thêm các thông báo lỗi khác nếu cần
+            'name.required' => '• Bạn chưa nhập nhóm thành viên',
+            'name.string' => '• Nhóm thành viên phải là chuỗi',
         ];
     }
 }

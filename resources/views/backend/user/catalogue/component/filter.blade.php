@@ -1,4 +1,4 @@
-<form action="{{ route('user.index') }}" method="get">
+<form action="{{ route('user.catalogue.index') }}" method="get">
     <div class="filter-wrapper">
         <div class="uk-flex uk-flex-middle uk-flex-space-between">
             <div class="perpage">

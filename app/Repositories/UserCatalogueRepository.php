@@ -15,10 +15,9 @@ class UserCatalogueRepository extends BaseRepository implements UserCatalogueRep
     protected $model;
 
     public function __construct(
-        UserCatalogue $model
+        Usercatalogue $model
     ){
         $this->model = $model;
     }
-
 
 }
